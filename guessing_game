@@ -1,0 +1,35 @@
+stop = False
+print ("If you want to exit the game, type exit! ")
+counter = 0
+correct = 0
+
+while (not  stop):
+    
+# generate random number
+
+    import random
+    a = random.randint (1, 9)
+    guess = input ("Enter a number between 1 and 9 ")
+    counter = counter + 1
+    if guess == "exit":
+        
+    # exiting game, printing number of guesses, number of correct guesses, percentage of correct guesses rounded to integer
+        print ("You have made", counter-1, "guesses!", 
+               correct, "of them was/were correct.",
+              "That is", int((correct/(counter-1))*100), "% correct guesses.")
+        print ("Thank you for playing! Good bye!")
+        stop = True
+        
+    elif a == int (guess):
+        print ("Congrats! You guessed it!")
+        # counting correct guesses
+        correct = correct + 1
+        
+    elif a < int (guess):
+        print ("You guessed to high. The answer is: ", a)
+    elif a > int (guess):
+        print ("You guessed to low. The answer is: ", a)
+    elif guess < 1 or guess > 9:
+        print ("Please choose a number between 1 and 9!")
+    else:
+        print ("Error. Invalid input")
